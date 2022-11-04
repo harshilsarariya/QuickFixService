@@ -15,28 +15,7 @@ const Drawer = createDrawerNavigator();
 
 const DrawerNavigation = () => {
   return (
-    <Drawer.Navigator
-      initialRouteName="Home"
-      drawerContent={(props) => {
-        const filteredProps = {
-          ...props,
-          state: {
-            ...props.state,
-            routeNames: props.state.routeNames.filter((routeName) => {
-              routeName !== "PlumberDetailsHome";
-            }),
-            routes: props.state.routes.filter(
-              (route) => route.name !== "PlumberDetailsHome"
-            ),
-          },
-        };
-        return (
-          <DrawerContentScrollView {...filteredProps}>
-            <DrawerItemList {...filteredProps} />
-          </DrawerContentScrollView>
-        );
-      }}
-    >
+    <Drawer.Navigator initialRouteName="Home">
       <Drawer.Screen
         name="Home"
         component={HomeScreen}
@@ -54,7 +33,11 @@ const DrawerNavigation = () => {
       <Drawer.Screen
         name="PlumberDetailsHome"
         component={PlumberDetails}
-        options={{}}
+        options={{
+          drawerItemStyle: {
+            display: "none",
+          },
+        }}
       />
       <Drawer.Screen
         name="Service"

@@ -11,7 +11,6 @@ const StackNavigation = () => {
       initialRouteName="ServiceScreen"
     >
       <Stack.Screen name="ServiceScreen" component={ServiceScreen} />
-      
     </Stack.Navigator>
   );
 };

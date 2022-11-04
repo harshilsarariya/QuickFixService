@@ -7,7 +7,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View>
       <PopularServices navigation={navigation} />
-      <RecentlyJoined />
+      <RecentlyJoined navigation={navigation} />
     </View>
   );
 };
