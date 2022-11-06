@@ -5,9 +5,7 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 const PlumberInfoCard = ({ title, navigation }) => {
   return (
     <TouchableOpacity
-      onPress={() =>
-        navigation.navigate("Drawer", { screen: "PlumberDeatilsScreen" })
-      }
+      onPress={() => navigation.navigate("PlumberDetailsService")}
       activeOpacity={0.6}
       className="flex flex-row items-center my-2 bg-slate-100 rounded-lg p-2"
     >
