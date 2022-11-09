@@ -1,11 +1,11 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 import React from "react";
 import Form from "../components/Form/Form";
 
-const FormScreen = () => {
+const FormScreen = ({ navigation }) => {
   return (
     <SafeAreaView>
-      <Form />
+      <Form navigation={navigation} />
     </SafeAreaView>
   );
 };

@@ -4,7 +4,7 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons/build/Icons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
 import HomeScreen from "../screens/HomeScreen";

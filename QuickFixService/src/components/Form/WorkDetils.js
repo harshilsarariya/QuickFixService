@@ -2,7 +2,14 @@ import { View, Text, TextInput } from "react-native";
 import React from "react";
 import { Button } from "react-native-paper";
 
-const WorkDetils = ({ setCurrentPosition }) => {
+const WorkDetils = ({
+  setCurrentPosition,
+  setPincode,
+  setCompanyName,
+  setExperience,
+  setWorkAddress,
+  handleSubmit,
+}) => {
   return (
     <View>
       <View className="p-5 bg-white h-full rounded-t-3xl w-screen">
@@ -10,32 +17,36 @@ const WorkDetils = ({ setCurrentPosition }) => {
         <View className="mt-5">
           <Text className="text-gray-400 text-base">Company Name</Text>
           <TextInput
-            placeholder="Enter the name"
+            placeholder="Enter the company name"
             className="mt-1 bg-gray-100 rounded-lg p-2 text-lg"
+            onChangeText={setCompanyName}
           />
         </View>
         <View className="mt-5">
           <Text className="text-gray-400 text-base">Experience</Text>
           <TextInput
-            keyboardType="phone-pad"
-            placeholder="In terms of number"
+            keyboardType="default"
+            placeholder="Write your experience"
             className="mt-1 bg-gray-100 rounded-lg p-2 text-lg"
-          />
-        </View>
-        <View className="mt-5">
-          <Text className="text-gray-400 text-base">Local Address</Text>
-          <TextInput
-            keyboardType="email-address"
-            placeholder="Enter the local adress"
-            className="mt-1 bg-gray-100 rounded-lg p-2 text-lg"
+            onChangeText={setExperience}
           />
         </View>
         <View className="mt-5">
           <Text className="text-gray-400 text-base">Work Address</Text>
           <TextInput
-            keyboardType="email-address"
+            keyboardType="default"
             placeholder="Enter the work adress"
             className="mt-1 bg-gray-100 rounded-lg p-2 text-lg"
+            onChangeText={setWorkAddress}
+          />
+        </View>
+        <View className="mt-5">
+          <Text className="text-gray-400 text-base">Pincode</Text>
+          <TextInput
+            keyboardType="number-pad"
+            placeholder="Enter the pincode"
+            className="mt-1 bg-gray-100 rounded-lg p-2 text-lg"
+            onChangeText={setPincode}
           />
         </View>
         <View className="flex flex-row justify-between">
@@ -51,6 +62,7 @@ const WorkDetils = ({ setCurrentPosition }) => {
             buttonColor="#000000f0"
             mode="contained-tonal"
             className="mt-5"
+            onPress={handleSubmit}
           >
             <Text className="text-white text-base w-32">Submit</Text>
           </Button>
