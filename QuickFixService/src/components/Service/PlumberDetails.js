@@ -1,5 +1,4 @@
-import { View, Text, Image } from "react-native";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import { View, Text, Image, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import { getUser } from "../../api/user";
 
@@ -8,9 +7,8 @@ const PlumberDetails = ({ route }) => {
   const [userInfo, setUserInfo] = useState({});
 
   const fetchData = async () => {
-    const { data } = await getUser(prmId);
+    let { data } = await getUser(prmId);
     setUserInfo(data);
-    console.log(userInfo);
   };
   useEffect(() => {
     fetchData();
@@ -22,88 +20,174 @@ const PlumberDetails = ({ route }) => {
 
   return (
     <View>
-      <View>
-        {userInfo.data.name !== undefined ? (
-          <Text className="">{userInfo.data.name}</Text>
+      <ScrollView className="p-2  bg-white">
+        {userInfo.name !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">Name </Text>
+            <Text className="text-lg border-2 rounded-lg px-2 py-1 border-gray-100">
+              {userInfo.name}
+            </Text>
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.emailAddress !== undefined ? (
-          <Text>{userInfo.data.emailAddress}</Text>
+        {userInfo.emailAddress !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">Email </Text>
+            <Text className="text-lg border-2 rounded-lg px-2 py-1 border-gray-100">
+              {userInfo.emailAddress}
+            </Text>
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.phone !== undefined ? (
-          <Text>{userInfo.data.phone}</Text>
+        {userInfo.phone !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">Phone </Text>
+            <Text
+              className="text-lg border-2 rounded-lg px-2 py-1 border-gray-100"
+              onPress={() => {}}
+              selectable={true}
+            >
+              {userInfo.phone}
+            </Text>
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.isAdmin !== undefined ? (
-          <Text>{userInfo.data.isAdmin}</Text>
+
+        {userInfo.pincode !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">Pincode </Text>
+            <Text className="text-lg border-2 rounded-lg px-2 py-1 border-gray-100">
+              {userInfo.pincode}
+            </Text>
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.pincode !== undefined ? (
-          <Text>{userInfo.data.pincode}</Text>
+        {userInfo.state !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">State </Text>
+            <Text className="text-lg border-2 rounded-lg px-2 py-1 border-gray-100">
+              {userInfo.state}
+            </Text>
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.state !== undefined ? (
-          <Text>{userInfo.data.state}</Text>
+        {userInfo.district !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">District </Text>
+            <Text className="text-lg border-2 rounded-lg px-2 py-1 border-gray-100">
+              {userInfo.district}
+            </Text>
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.district !== undefined ? (
-          <Text>{userInfo.data.district}</Text>
+        {userInfo.area !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">Area </Text>
+            <Text className="text-lg border-2 rounded-lg px-2 py-1 border-gray-100">
+              {userInfo.area}
+            </Text>
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.area !== undefined ? (
-          <Text>{userInfo.data.area}</Text>
+        {userInfo.companyName !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">Company Name </Text>
+            <Text className="text-lg border-2 rounded-lg px-2 py-1 border-gray-100">
+              {userInfo.companyName}
+            </Text>
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.aadharFront !== undefined ? (
-          <Text>{userInfo.data.aadharFront}</Text>
+        {userInfo.experience !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">Experience </Text>
+            <Text className="text-lg border-2 rounded-lg px-2 py-1 border-gray-100">
+              {userInfo.experience}
+            </Text>
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.aadharBack !== undefined ? (
-          <Text>{userInfo.data.aadharBack}</Text>
+
+        {userInfo.workAddress !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">Work Address </Text>
+            <Text className="text-lg border-2 rounded-lg px-2 py-1 border-gray-100">
+              {userInfo.workAddress}
+            </Text>
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.pancard !== undefined ? (
-          <Text>{userInfo.data.pancard}</Text>
+
+        {userInfo.isAgency !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">Agency </Text>
+            <Text className="text-lg border-2 rounded-lg px-2 py-1 border-gray-100">
+              {userInfo.isAgency ? "Yes" : "No"}
+            </Text>
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.companyName !== undefined ? (
-          <Text>{userInfo.data.companyName}</Text>
+        {userInfo.districts !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">Districts </Text>
+            <Text className="text-lg border-2 rounded-lg px-2 py-1 border-gray-100">
+              {userInfo.districts}
+            </Text>
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.experience !== undefined ? (
-          <Text>{userInfo.data.experience}</Text>
+        {userInfo.aadharFront !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">Aadhar Card Front </Text>
+            <Image
+              source={{
+                uri: userInfo.aadharFront.url,
+              }}
+              className="w-full h-52 rounded-lg"
+            />
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.workAddress !== undefined ? (
-          <Text>{userInfo.data.workAddress}</Text>
+        {userInfo.aadharBack !== undefined ? (
+          <View className="flex m-2">
+            <Text className="text-lg font-bold">Aadhar Card Back </Text>
+            <Image
+              source={{
+                uri: userInfo.aadharBack.url,
+              }}
+              className="w-full h-52 rounded-lg"
+            />
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.isAgency !== undefined ? (
-          <Text>{userInfo.data.isAgency}</Text>
+        {userInfo.pancard !== undefined ? (
+          <View className="flex m-2 pb-7">
+            <Text className="text-lg font-bold">Aadhar Card Back </Text>
+            <Image
+              source={{
+                uri: userInfo.pancard.url,
+              }}
+              className="w-full h-52 rounded-lg"
+            />
+          </View>
         ) : (
           <></>
         )}
-        {userInfo.data.districts !== undefined ? (
-          <Text>{userInfo.data.districts}</Text>
-        ) : (
-          <></>
-        )}
-      </View>
+      </ScrollView>
     </View>
   );
 };
